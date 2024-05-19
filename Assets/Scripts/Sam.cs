@@ -24,8 +24,11 @@ public class Sam : MonoBehaviour
 
     void Update()
     {
-        moveVector = Input.GetAxis("Horizontal") * speed * Time.deltaTime * 10;
-        transform.Translate(moveVector, 0, 0);
+        moveVector = Input.GetAxis("Horizontal") * speed * 10;
+        Vector2 move = rb.velocity;
+        move.x = moveVector;
+        //transform.Translate(moveVector, 0, 0);
+        rb.velocity = move;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -45,10 +48,15 @@ public class Sam : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D hit)
     {
-        if (hit.gameObject.tag == "Ground")
+        if (hit.gameObject.tag == "YesDB")
         {
             groundStand = true;
             doubleJump = true;
+        }
+        if (hit.gameObject.tag == "NoDB")
+        {
+            groundStand = true;
+            doubleJump = false;
         }
     }
 }
