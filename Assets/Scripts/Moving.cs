@@ -35,7 +35,6 @@ public class Moving : MonoBehaviour
     void Update()
     {
         float distance = Vector2.Distance(startPos, rb.position);
-        Debug.Log(Mathf.Round(distance));
         if (returnDistance == Mathf.Round(distance)) move = false;
         if (distance <= 0) move = true;
         if (move)

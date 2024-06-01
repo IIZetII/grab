@@ -8,6 +8,7 @@ TagManager:
   - YesDB
   - NoDB
   - player
+  - Enemy
   layers:
   - Default
   - TransparentFX
